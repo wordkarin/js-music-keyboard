@@ -3,19 +3,22 @@ $(document).ready( function() {
 // play the audio
 var playKey = function(letter) {
   var audio = $("#" + letter + "Audio");
+  console.log(audio);
   audio[0].play();
+  console.log(audio);
 };
 
 
 // on button click of each thing, play the sound.
   $('.instrument').on('click', 'button', function(event) {
-    // playKey(event.);
-    alert('Got a click on an button containing "' + $(this).html() + '"');
+    var note = $(this).html();
+    console.log(note);
+    playKey(note);
   });
 
 // on keypress of each thing, play the sound.
     var keyletter = function(letter) {
-      $("body").keydown(function(event) {
+      $("body").on('keydown', function(event) {
         if (event.key == letter) {
           playKey(letter);
         }
