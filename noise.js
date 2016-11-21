@@ -3,9 +3,8 @@ $(document).ready( function() {
 // play the audio
 var playKey = function(letter) {
   var audio = $("#" + letter + "Audio");
-  console.log(audio);
+  audio[0].load();
   audio[0].play();
-  console.log(audio);
 };
 
 
