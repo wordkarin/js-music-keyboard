@@ -1,8 +1,15 @@
 $(document).ready( function() {
-  // your code here
+
+// play the audio
+var playKey = function(letter) {
+  var audio = $("#" + letter + "Audio");
+  audio[0].play();
+};
+
 
 // on button click of each thing, play the sound.
   $('.instrument').on('click', 'button', function(event) {
+    // playKey(event.);
     alert('Got a click on an button containing "' + $(this).html() + '"');
   });
 
@@ -10,7 +17,7 @@ $(document).ready( function() {
     var keyletter = function(letter) {
       $("body").keydown(function(event) {
         if (event.key == letter) {
-          alert('You got a ' + letter +   "!");
+          playKey(letter);
         }
       });
     };
@@ -24,4 +31,6 @@ $(document).ready( function() {
   var key_e = keyletter("e");
   var key_f = keyletter("f");
   var key_g = keyletter("g");
+
+
 });
